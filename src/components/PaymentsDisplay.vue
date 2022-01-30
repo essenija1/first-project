@@ -1,6 +1,67 @@
 <template>
-  <v-container>
-    <v-row>
+  <v-simple-table
+    fixed-header
+    height="400px"
+  >
+    <template v-slot:default>
+      <thead>
+        <tr>
+          <th class="text-left">
+            #
+          </th>
+          <th class="text-left">
+            Date
+          </th>
+          <th class="text-left">
+            Category
+          </th>
+          <th class="text-left">
+            Value
+          </th>
+          <th class="text-left">
+            Button
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="(item, idx) in items" 
+          :key="idx"
+          :items-per-page="5"
+           class="elevation-1"
+        >
+          <td>{{ item.id }}</td>
+          <td>{{ item.date }}</td>
+          <td>{{ item.category }}</td>
+          <td>{{ item.value }}</td>
+          <td><button><slot name="&times;" v-on:click="onClick">&times;</slot>
+            <select v-model="filter"> 
+              <option value="completed">Добавить</option>
+              <option value="deleted">Удалить</option>
+           </select></button></td>
+        </tr>
+      </tbody>
+    </template>
+  </v-simple-table>
+</template>
+
+
+<!--<template>
+  <v-data-table
+    :headers="headers"
+    :items="all"
+    :items-per-page="5"
+    class="elevation-1"
+  ></v-data-table>
+</template>-->
+
+
+
+
+
+<!--<template>
+   <v-container>  
+    <v-row>   
       <v-col :cols="1">
         #
       </v-col>
@@ -21,42 +82,18 @@
         <v-col :cols="1">{{item.id}}</v-col>
         <v-col>{{item.date}}</v-col>
         <v-col>{{item.category}}</v-col>
-        <v-col>{{item.value}}</v-col>   
-          
-         <!-- <v-col>
-            <template>
-          <v-btn 
-          :items="dropdown_icon"
-          label="dropdown_icon"
-          v-on:click="cart += 1"> &times; 
-        
-            <select>
-              <option value=""></option>
-              <option value="completed">Добавить</option>
-              <option value="deleted">Удалить</option>
-            </select></v-btn>
-          </template></v-col>-->
-           
+        <v-col>{{item.value}}</v-col>      
           <button><slot name="&times;" v-on:click="onClick">&times;</slot>
-            <select v-model="filter">
-              
+            <select v-model="filter"> 
               <option value="completed">Добавить</option>
               <option value="deleted">Удалить</option>
-            
-            </select>
-           
-          
-            </button>
-        
-        
-        
-        
-        
-        
-        
+           </select></button>
+  
     </v-row>
   </v-container>
-</template>
+</template>-->
+
+
 
 <script>
 export default {
@@ -78,32 +115,8 @@ export default {
       }
     },
   },
- // methods: {
-  //  editItem(item) {
-  //    console.log(item);
-  //  },
-  //  onClickContextItem(event, item) {
-   //   const items = [
-   //     {
-   //       text: "Edit",
-   //       action: () => {
-    //        this.editItem(items);
-    //      },
-    //    },
-     //   {
-     //     text: "Delete",
-     //     action: () => {
-      //      console.log("delete", item);
-      //    },
-     //   },
-     // ];
-
-     // this.$context.show({ event, item });
-   // },
-  //},
 };
 </script>
 
 <style scoped>
- 
 </style>
