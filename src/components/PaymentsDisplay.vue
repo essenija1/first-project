@@ -43,18 +43,6 @@
 </template>
 
 
-<!--<template>
-  <v-data-table
-    :headers="headers"
-    :items="all"
-    :items-per-page="5"
-    class="elevation-1"
-  ></v-data-table>
-</template>-->
-
-
-
-
 
 <!--<template>
    <v-container>  
@@ -104,30 +92,30 @@ export default {
         type: Array,
         default: () => ['убрать', 'добавить'],
     },
-    data() {
+    //data() {
 
-      return {
+    //  return {
         //filter: 'all',
 
-        items: [
-          {
-            category: "Education",
-          },
-          {
-            category: "Sport",
-          },
-          {
-            category: "Internet",
-          },
-          {
-            category: "Food",
-          },
-          {
-            category: "Transport",
-          },
-        ],
-    };
-    },
+      //  items: [
+      //    {
+      //      category: "Education",
+      //    },
+       //   {
+       //     category: "Sport",
+       //   },
+        //  {
+        //    category: "Internet",
+       //   },
+        //  {
+        //    category: "Food",
+         // },
+        //  {
+        //    category: "Transport",
+        //  },
+       // ],
+  //  };
+   // },
    
     watch: {
       filter(value) {
