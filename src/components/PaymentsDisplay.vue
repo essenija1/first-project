@@ -14,34 +14,25 @@
         <tr
           v-for="(item, idx) in items"
           :key="idx"
-          :items-per-page="5"
-          class="elevation-1"
+          :items-per-page="2"
+          class="elevation-2"
         >
           <td>{{ item.idx }}</td>
           <td>{{ item.date }}</td>
           <td>{{ item.category }}</td>
           <td>{{ item.value }}</td>
           <td>
-           
-             <!-- <slot name="&times;" v-on:click="onClick">&times;</slot> -->
-              <!-- <v-select v-model="filter"> -->
-              <v-select 
-              :items="headers" 
-              label="" 
-              dense
-              >
-                <!-- <option value="completed">Добавить</option>
-                <option value="deleted">Удалить</option>
-                </v-select>  -->
-              </v-select>
-          
+            <v-select 
+             :items="positions" 
+             label=""
+             dense>
+            </v-select>
           </td>
-       </tr>
+        </tr>
       </tbody>
     </template>
   </v-simple-table>
 </template>
-
 
 
 <!--<template>
@@ -85,42 +76,42 @@ export default {
   name: "PaymentsDisplay",
   props: {
     items: {
-      type: Array,
+      //type: Array,
       default: () => [],
     },
-    headers: {
+    positions: {
         type: Array,
         default: () => ['убрать', 'добавить'],
     },
-    //data() {
 
-    //  return {
-        //filter: 'all',
+    // data() {
+    //   return {
+    //     filter: "all",
 
-      //  items: [
-      //    {
-      //      category: "Education",
-      //    },
-       //   {
-       //     category: "Sport",
-       //   },
-        //  {
-        //    category: "Internet",
-       //   },
-        //  {
-        //    category: "Food",
-         // },
-        //  {
-        //    category: "Transport",
-        //  },
-       // ],
-  //  };
-   // },
-   
-    watch: {
-      filter(value) {
-        console.log(value);
-      },
+    //     items: [
+    //       {
+    //         category: "Education",
+    //       },
+    //       {
+    //         category: "Sport",
+    //       },
+    //       {
+    //         category: "Internet",
+    //       },
+    //       {
+    //         category: "Food",
+    //       },
+    //       {
+    //         category: "Transport",
+    //       },
+    //     ],
+    //  };
+    //},
+
+     watch: {
+       filter(value) {
+         console.log(value);
+        },
     },
   },
 };
